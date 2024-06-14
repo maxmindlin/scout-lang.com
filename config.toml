@@ -1,5 +1,5 @@
 # The URL the site will be built for
-base_url = "https://scout-lang.netlify.com"
+base_url = "https://scout-lang.netlify.app"
 title = "Scout"
 description = "Scout is a modern web crawling programming language."
 
