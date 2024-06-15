@@ -36,7 +36,11 @@ The REPL opens a debugging browser window and lets you execute crawling scripts 
 scout
 ```
 
-### Step 3: Create your first Scout file:
+### Step 3: Install the VSCode extension (if applicable):
+
+ScoutLang maintains a VSCode [extension](https://marketplace.visualstudio.com/items?itemName=ScoutLang.scout-lang-vscode).
+
+### Step 4: Create your first Scout file:
 
 Now lets create your first Scout file
 
