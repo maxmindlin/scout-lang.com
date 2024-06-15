@@ -9,7 +9,7 @@ sort_by = "weight"
 template = "docs/page.html"
 
 [extra]
-lead = "Contribute to AdiDoks, improve documentation, or submit to showcase."
+lead = "Contribute to Scout, improve documentation, or submit to showcase."
 toc = true
 top = false
 +++

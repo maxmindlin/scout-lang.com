@@ -29,7 +29,7 @@ content = 'An easy to read syntax that focuses on developer velocity.'
 
 [[extra.list]]
 title = "Powerful web crawling technology"
-content = 'Gain access to advanced web crawling technology without needing expertise.'
+content = 'Access advanced web crawling technology without expertise.'
 
 [[extra.list]]
 title = "Builtin debugging"
