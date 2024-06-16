@@ -30,11 +30,19 @@ curl --proto '=https' --tlsv1.2 -LsSf https://github.com/maxmindlin/scout-lang/r
 
 ### Step 2: Explore the REPL:
 
-The REPL opens a debugging browser window and lets you execute crawling scripts line by line. Its a great place to explore the Scout language and test run your crawling scripts.
+The REPL opens a debugging session and lets you execute crawling scripts line by line. Its a great place to explore the Scout language and test run your crawling scripts.
 
 ```bash
 scout
 ```
+
+If you want a debugging browser window to open as well then pass the `--debug` flag:
+
+```bash
+scout --debug
+```
+
+This also works when running script files!
 
 ### Step 3: Install the VSCode extension (if applicable):
 
@@ -60,6 +68,12 @@ Then run it!
 
 ```bash
 scout my-first-file.sct
+```
+
+or with a debugging window open:
+
+```bash
+scout my-first-file.sct --debug
 ```
 
 You should see the `about` section printed out in your terminal, along with a results json object that we will cover later:
