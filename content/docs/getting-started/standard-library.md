@@ -65,5 +65,8 @@ Selects will be the main way you access elements on the webpage and are paramete
 - `len(List | Str) -> Number`
   - Returns the number of elements in a provided `List` or the number of characters in a provided `Str`.
 
-- `input(Node, Str) -> Null`
-  - Inputs a provided string to a provided input element.
+- `input(Node, Str, Object) -> Null`
+  - Inputs a provided string to a provided input element. If the `Object` parameter is truthy, then a `return` key action will be executed - defaults to `false`.
+
+- `contains(List | Str, Object) -> Boolean`
+  - Returns whether or not the given object is in the list, or if a given substring is in the provided `Str`.

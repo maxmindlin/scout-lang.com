@@ -25,7 +25,7 @@ Simply download and run the installation script. It will determine the appropria
 ### Step 1: Download and run installation script:
 
 ```bash
-curl --proto '=https' --tlsv1.2 -LsSf https://github.com/maxmindlin/scout-lang/releases/download/v0.1.0/scout-installer.sh | sh
+curl --proto '=https' --tlsv1.2 -LsSf https://github.com/maxmindlin/scout-lang/releases/download/v0.2.0/scout-installer.sh | sh
 ```
 
 ### Step 2: Explore the REPL:
