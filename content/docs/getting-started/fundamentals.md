@@ -1,15 +1,63 @@
 +++
-title = "Standard Library"
-description = "Overview of the Scout standard library"
+title = "Fundamentals"
+description = "Overview of the ScoutLang fundamentals."
 date = 2021-05-01T08:20:00+00:00
 updated = 2021-05-01T08:20:00+00:00
 draft = false
-weight = 20
+weight = 30
 sort_by = "weight"
 template = "docs/page.html"
 +++
 
-Overview of what comes standard in the Scout programming language
+Overview of the Scout programming language fundamentals.
+
+## Comments
+
+Scout comments are started with `//` and ended by newlines.
+
+```
+// I'm a comment
+
+x = 1 // And so am I!
+```
+## Imports
+
+In Scout the `use` keyword will read another `.sct` file and import it:
+
+```
+use "lib"
+
+// contents of lib.sct are now in scope
+```
+
+Currently scout looks for these files from the working directory. So in this example `lib.sct` must be `<WORKING_DIR>/lib.sct`.
+
+You can import files from folders as you would expect:
+
+```
+use "lib/index" // <WORKING_DIR>/lib/index.sct
+```
+
+## Pipes
+
+A common operator you will see in Scout scripts is the `pipe`. A `pipe` allows you to "pipe" expressions into the next expression, like a chain. When piped, the result of an expression is inserted as the first argument to the following function call. This can be chained as many times as needed.
+
+A nested function call like so:
+
+```
+print(contains(href($"a"), ".com"))
+```
+
+would be equivalent to the following expression pipe:
+
+```
+$"a"
+  |> href()
+  |> contains(".com")
+  |> print()
+```
+
+Pipes tend to produce more readable code instead of nested function calls, but both are valid Scout code!
 
 ## Selects
 
@@ -42,7 +90,44 @@ end
 
 Selects will be the main way you access elements on the webpage and are parameters for many of the builtin standard library functions.
 
-## Builtin Functions
+## Functions
+
+Like most programming languages, Scout has user-defined functions. They take the format:
+
+```
+def <identifier>([parameters]) do
+  <content>
+end
+```
+
+A function to return all the links at a given url could look like so:
+
+```
+def links(url) do
+  goto url
+  $$"a" |> href()
+end
+
+"https://google.com"
+  |> links()
+  |> print() // would print all the URLs on the Google homepage
+```
+
+Scout functions return the evaluation of the final expression - no need for a return keyword. Like other languages, you can use a return statement to return early:
+
+```
+def links(url) do
+  if url == "https://mysite.com" do
+    return null
+  end
+
+  goto url
+  $$"a" |> href()
+end
+```
+
+
+### Builtin Functions
 
 - `print(Object, ...) -> Null`
   - Will print each object to stdout that is provided as parameters. Any number of objects can used as parameters.
