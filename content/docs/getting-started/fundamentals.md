@@ -7,9 +7,12 @@ draft = false
 weight = 30
 sort_by = "weight"
 template = "docs/page.html"
-+++
 
-Overview of the Scout programming language fundamentals.
+[extra]
+lead = 'Overview of the Scout programming language fundamentals.'
+toc = true
+top = false
++++
 
 ## Comments
 
