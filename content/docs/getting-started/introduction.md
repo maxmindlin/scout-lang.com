@@ -20,7 +20,7 @@ One page summary of how to start using Scout. [Quick Start →](/docs/getting-st
 
 ## Go further
 
-Explore the standard library. [Standard Library →](/docs/getting-started/standard-library/)
+Explore the standard library. [Fundamentals →](/docs/getting-started/fundamentals/)
 
 ## Contributing
 

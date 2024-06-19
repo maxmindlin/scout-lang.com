@@ -41,6 +41,34 @@ You can import files from folders as you would expect:
 use "lib/index" // <WORKING_DIR>/lib/index.sct
 ```
 
+## Try-Catch
+
+Scout has simple try catches that work as you might expect:
+
+```
+try
+  <block>
+catch
+  <block>
+end
+```
+
+The `catch` is optional, you can try without an explicit catch:
+
+```
+try
+  <block>
+end
+
+// This is equivalent to:
+
+try
+  <block>
+catch
+end
+```
+
+
 ## Pipes
 
 A common operator you will see in Scout scripts is the `pipe`. A `pipe` allows you to "pipe" expressions into the next expression, like a chain. When piped, the result of an expression is inserted as the first argument to the following function call. This can be chained as many times as needed.
