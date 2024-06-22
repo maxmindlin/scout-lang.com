@@ -6,7 +6,7 @@
 lead = 'A modern web crawling programming language.'
 url = "/docs/getting-started/introduction/"
 url_button = "Get started"
-repo_version = "GitHub v0.3.0"
+repo_version = "GitHub v0.4.1"
 repo_license = "Open-source MIT/Apache 2.0 License"
 repo_url = "https://github.com/maxmindlin/scout-lang"
 

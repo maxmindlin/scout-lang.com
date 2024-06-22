@@ -41,55 +41,6 @@ You can import files from folders as you would expect:
 use "lib/index" // <WORKING_DIR>/lib/index.sct
 ```
 
-## Try-Catch
-
-Scout has simple try catches that work as you might expect:
-
-```
-try
-  <block>
-catch
-  <block>
-end
-```
-
-The `catch` is optional, you can try without an explicit catch:
-
-```
-try
-  <block>
-end
-
-// This is equivalent to:
-
-try
-  <block>
-catch
-end
-```
-
-
-## Pipes
-
-A common operator you will see in Scout scripts is the `pipe`. A `pipe` allows you to "pipe" expressions into the next expression, like a chain. When piped, the result of an expression is inserted as the first argument to the following function call. This can be chained as many times as needed.
-
-A nested function call like so:
-
-```
-print(contains(href($"a"), ".com"))
-```
-
-would be equivalent to the following expression pipe:
-
-```
-$"a"
-  |> href()
-  |> contains(".com")
-  |> print()
-```
-
-Pipes tend to produce more readable code instead of nested function calls, but both are valid Scout code!
-
 ## Selects
 
 Select expressions are one of the key elements of Scout. There are two variants:
@@ -121,7 +72,72 @@ end
 
 Selects will be the main way you access elements on the webpage and are parameters for many of the builtin standard library functions.
 
-## Functions
+## Pipes
+
+A common operator you will see in Scout scripts is the `pipe`. A `pipe` allows you to "pipe" expressions into the next expression, like a chain. When piped, the result of an expression is inserted as the first argument to the following function call. This can be chained as many times as needed.
+
+A nested function call like so:
+
+```
+print(contains(href($"a"), ".com"))
+```
+
+would be equivalent to the following expression pipe:
+
+```
+$"a"
+  |> href()
+  |> contains(".com")
+  |> print()
+```
+
+Pipes tend to produce more readable code instead of nested function calls, but both are valid Scout code!
+
+# Control Flow
+
+## If/Else
+
+An if/else statement is started by the `if` keyword. Following `elif` and `else` cases are optional. However, like in other languages, if an `else` is placed before an `elif` then that `elif` will be unreachable.
+
+```
+if <condition> do
+  <block>
+elif <condition> do
+  <block>
+else
+  <block>
+end
+```
+
+## Try-Catch
+
+Scout has simple try catches that work as you might expect:
+
+```
+try
+  <block>
+catch
+  <block>
+end
+```
+
+The `catch` is optional, you can try without an explicit catch:
+
+```
+try
+  <block>
+end
+
+// This is equivalent to:
+
+try
+  <block>
+catch
+end
+```
+
+
+# Functions
 
 Like most programming languages, Scout has user-defined functions. They take the format:
 
@@ -158,7 +174,7 @@ end
 ```
 
 
-### Builtin Functions
+## Builtin Functions
 
 - `print(Object, ...) -> Null`
   - Will print each object to stdout that is provided as parameters. Any number of objects can used as parameters.
