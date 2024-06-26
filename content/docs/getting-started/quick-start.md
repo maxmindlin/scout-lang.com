@@ -22,10 +22,10 @@ Scout currently requires the FireFox browser and [Geckodriver](https://github.co
 
 Simply download and run the installation script. It will determine the appropriate binary for your operating system.
 
-### Step 1: Download and run installation script:
+### Step 1: Download and run installation script (requires Python3):
 
 ```bash
-curl --proto '=https' --tlsv1.2 -LsSf https://github.com/maxmindlin/scout-lang/releases/download/v0.4.1/scout-installer.sh | sh
+curl --proto '=https' --tlsv1.2 -LsSf https://raw.githubusercontent.com/maxmindlin/scout-lang/main/scripts/installer.py | python3
 ```
 
 ### Step 2: Explore the REPL:
@@ -36,10 +36,10 @@ The REPL opens a debugging session and lets you execute crawling scripts line by
 scout
 ```
 
-If you want a debugging browser window to open as well then pass the `--debug` flag:
+If you want a debugging browser window to open as well then set the env var `export SCOUT_DEBUG=true`:
 
 ```bash
-scout --debug
+SCOUT_DEBUG=true scout
 ```
 
 This also works when running script files!
@@ -73,7 +73,7 @@ scout my-first-file.sct
 or with a debugging window open:
 
 ```bash
-scout my-first-file.sct --debug
+SCOUT_DEBUG=true scout my-first-file.sct
 ```
 
 You should see the `about` section printed out in your terminal, along with a results json object that we will cover later:

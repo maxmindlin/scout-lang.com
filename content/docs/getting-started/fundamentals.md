@@ -28,9 +28,7 @@ x = 1 // And so am I!
 In Scout the `use` keyword will read another `.sct` file and import it:
 
 ```
-use "lib"
-
-// contents of lib.sct are now in scope
+use lib
 ```
 
 Currently scout looks for these files from the working directory. So in this example `lib.sct` must be `<WORKING_DIR>/lib.sct`.
@@ -38,8 +36,68 @@ Currently scout looks for these files from the working directory. So in this exa
 You can import files from folders as you would expect:
 
 ```
-use "lib/index" // <WORKING_DIR>/lib/index.sct
+use lib::index // <WORKING_DIR>/lib/index.sct
 ```
+
+Importing a directory will import all modules within that directory.
+
+You can then access members of an imported module via the `::` operator:
+
+```
+use std::keys
+use std
+
+enter = keys::ENTER
+
+keys::press(enter)
+
+links = std::utils::links()
+```
+
+## Command-line Args
+
+ScoutLang comes with builtin support for reading script args:
+
+```
+>> scout file.sct hello world!
+
+// file.sct
+
+args() == ["file.sct", "hello", "world!"]
+```
+
+## Crawl Statements
+
+Scout's `crawl` statement allows you to execute a depth-first search crawl through the website, following URLs as it finds them on each page. A simple crawl statement like so will find and visit every single link and print the URL it lands on:
+
+```
+crawl do
+  url() |> print()
+end
+```
+
+The crawl statement has additional options to bind and filter the URLs it finds in the format:
+
+```
+crawl <binding> where <expression> do
+  <block>
+end
+```
+
+The `binding` binds the found URL to that identifier and executes the `expression`. Only if the `expression` evaluates to true will the `block` be evaluated. For example:
+
+```
+
+// For every URL found, only visit it if it contains
+// the string "twitter.com". When a URL is visited,
+// simply print it out.
+crawl link where link |> contains("twitter.com") do
+  print(link)
+end
+```
+
+Crawl statements can be used to create powerful web crawling scripts with very few lines of code.
+
 
 ## Selects
 
@@ -173,6 +231,18 @@ def links(url) do
 end
 ```
 
+## Standard Library
+
+The scout standard library gets installed alongside the interpreter when installed via the python script `installer.py`. By default it is installed at `$HOME/scout-lang/scout-lib/`. You can access it via the `std` module:
+
+```
+use std
+use std::keys
+use std::utils
+```
+
+The entire library can be explored in the ScoutLang [repository](https://github.com/maxmindlin/scout-lang/tree/main/scout-lib).
+
 
 ## Builtin Functions
 
@@ -202,3 +272,15 @@ end
 
 - `contains(List | Str, Object) -> Boolean`
   - Returns whether or not the given object is in the list, or if a given substring is in the provided `Str`.
+
+- `url() -> Str`
+  - Returns the current URL.
+
+- `number(Str) -> Number`
+  - Parses a string to a Number.
+
+- `args() -> List[Str]`
+  - Returns an array containing the command line args.
+
+- `sleep(Number) -> Null`
+  - Sleeps for a provided number of milliseconds.
