@@ -79,24 +79,24 @@ end
 The crawl statement has additional options to bind and filter the URLs it finds in the format:
 
 ```
-crawl <binding> where <expression> do
+crawl <link>, <depth> where <expression> do
   <block>
 end
 ```
 
-The `binding` binds the found URL to that identifier and executes the `expression`. Only if the `expression` evaluates to true will the `block` be evaluated. For example:
+The `link` and `depth` binds the found URL and current crawl depth to identifiers and executes the `expression`. Only if the `expression` evaluates to true will the `block` be evaluated. For example:
 
 ```
 
 // For every URL found, only visit it if it contains
-// the string "twitter.com". When a URL is visited,
+// the string "twitter.com" and we are less than 5 visited URLs deep. When a URL is visited,
 // simply print it out.
-crawl link where link |> contains("twitter.com") do
+crawl link, depth where link |> contains("twitter.com") and depth < 5 do
   print(link)
 end
 ```
 
-Crawl statements can be used to create powerful web crawling scripts with very few lines of code.
+Crawl statements are basically depth-first searches of websites and can be used to create powerful web crawling scripts with very few lines of code.
 
 
 ## Selects
