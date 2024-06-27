@@ -88,14 +88,17 @@ The `link` and `depth` binds the found URL and current crawl depth to identifier
 ```
 
 // For every URL found, only visit it if it contains
-// the string "twitter.com" and we are less than 5 visited URLs deep. When a URL is visited,
+// the string "twitter.com" and we are less than 5
+// visited URLs deep. When a URL is visited,
 // simply print it out.
-crawl link, depth where link |> contains("twitter.com") and depth < 5 do
+crawl link, depth
+  where link |> contains("twitter.com") and depth < 5
+do
   print(link)
 end
 ```
 
-Crawl statements are basically depth-first searches of websites and can be used to create powerful web crawling scripts with very few lines of code.
+Crawl statements can be used to create powerful web crawling scripts with very few lines of code.
 
 
 ## Selects
@@ -217,16 +220,15 @@ end
   |> print() // would print all the URLs on the Google homepage
 ```
 
-Scout functions return the evaluation of the final expression - no need for a return keyword. Like other languages, you can use a return statement to return early:
+Scout functions return the evaluation of the final expression - no need for a return keyword. Like other languages, you can use a return statement to return early like the `links` function in the standard lib:
 
 ```
-def links(url) do
-  if url == "https://mysite.com" do
-    return null
+def links(scope = null) do
+  if scope do
+    return $$(scope)"a[href]" |> href()
   end
 
-  goto url
-  $$"a" |> href()
+  $$"a[href]" |> href()
 end
 ```
 
