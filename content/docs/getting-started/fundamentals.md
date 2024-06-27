@@ -45,11 +45,10 @@ You can then access members of an imported module via the `::` operator:
 
 ```
 use std::keys
+use std::keys::ENTER
 use std
 
-enter = keys::ENTER
-
-keys::press(enter)
+keys::press(ENTER)
 
 links = std::utils::links()
 ```
