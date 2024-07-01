@@ -61,7 +61,7 @@ and add this content to the file:
 ```
 goto "https://github.com/maxmindlin/scout-lang"
 about = $".f4.my-3"
-about |> textContent() |> trim() |> print()
+about |> textContent() |> print()
 ```
 
 Then run it!
