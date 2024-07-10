@@ -18,17 +18,24 @@ top = false
 
 Scout currently requires the FireFox browser and [Geckodriver](https://github.com/mozilla/geckodriver) installed.
 
-## Installation
+### Step 1: Installation
 
-Simply download and run the installation script. It will determine the appropriate binary for your operating system.
+Scout can be installed in one of two ways:
 
-### Step 1: Download and run installation script (requires Python3):
+1. Cargo (requires Rust)
 
+```bash
+cargo install scoutlang
+```
+
+2. Download and run installation script (requires Python3)
 ```bash
 curl --proto '=https' --tlsv1.2 -LsSf https://raw.githubusercontent.com/maxmindlin/scout-lang/main/scripts/installer.py | python3
 ```
 
-### Step 2: Explore the REPL:
+Both install the Scout interpreter and add it to your path as `scout`.
+
+### Step 2: Explore the REPL
 
 The REPL opens a debugging session and lets you execute crawling scripts line by line. Its a great place to explore the Scout language and test run your crawling scripts.
 
@@ -44,11 +51,11 @@ SCOUT_DEBUG=true scout
 
 This also works when running script files!
 
-### Step 3: Install the VSCode extension (if applicable):
+### Step 3: Install the VSCode extension (if applicable)
 
 ScoutLang maintains a VSCode [extension](https://marketplace.visualstudio.com/items?itemName=ScoutLang.scout-lang-vscode).
 
-### Step 4: Create your first Scout file:
+### Step 4: Create your first Scout file
 
 Now lets create your first Scout file
 
