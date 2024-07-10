@@ -234,7 +234,7 @@ end
 
 ## Standard Library
 
-The scout standard library gets installed alongside the interpreter when installed via the python script `installer.py`. By default it is installed at `$HOME/scout-lang/scout-lib/`. You can access it via the `std` module:
+The scout standard library gets installed alongside the interpreter. By default it is installed at `$HOME/scout-lang/scout-lib/`. You can access it via the `std` module:
 
 ```
 use std
