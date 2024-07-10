@@ -24,6 +24,6 @@ top = false
 
 ### Create an issue
 
-- [Bug report](https://github.com/maxmindlin/scout-lang/issues/new?template=bug-report---.md)
-- [Feature request](https://github.com/maxmindlin/scout-lang/issues/new?template=feature-request---.md)
+- [Bug report](https://github.com/maxmindlin/scout-lang/issues/new?template=bug_report.md)
+- [Feature request](https://github.com/maxmindlin/scout-lang/issues/new?template=feature_request.md)
 
